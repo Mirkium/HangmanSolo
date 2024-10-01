@@ -1,0 +1,5 @@
+package Jeux
+
+func Rules() {
+	
+}
