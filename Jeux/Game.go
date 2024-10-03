@@ -5,18 +5,7 @@ import (
 	"math/rand/v2"
 )
 
-const (
-	LightGreen   = "\033[38;5;10m"  // Vert fluo
-	DarkGreen    = "\033[38;5;28m"  // Vert foncé
-	LightYellow  = "\033[38;5;226m" // Jaune fluo
-	OrangeYellow = "\033[38;5;214m" // Jaune orangé
-	LightOrange  = "\033[38;5;208m" // Orange fluo
-	PinkRed      = "\033[38;5;197m" // Pink red
-	LightRed     = "\033[38;5;196m" // Rouge fluo
-	Reset        = "\033[0m"        // Réinitialisation de la couleur
-)
-
-var LosePoint int
+var LosePoint int = 3
 var LosePointMax int
 var Inconnu []string
 var Begin bool
@@ -44,10 +33,17 @@ func Play() {
 		clearScreen()
 		fmt.Println("================H.A.N.G.M.A.N================")
 		fmt.Println("")
-		fmt.Println("Side this word : ", Inconnu)
+		fmt.Print("Side this word : ")
+		for _, k := range Inconnu {
+			fmt.Print(k)
+		}
 		fmt.Println("")
 		fmt.Println("Nb Error : ", LosePoint)
-		fmt.Println("Your fault : ", LettreError)
+		fmt.Print("Your fault : ")
+		for _, L := range LettreError {
+			fmt.Print(L)
+		}
+		fmt.Println("")
 		Error()
 		fmt.Println("")
 		fmt.Println("")
@@ -94,7 +90,6 @@ func RandomHelp(mot string) {
 	}
 	Begin = false
 }
-
 
 func Lose(mot string) {
 	var choix string

@@ -1,141 +1,50 @@
 package Jeux
 
-import "fmt"
+import (
+	"fmt"
+	"io/ioutil"
+	"strconv"
+)
+
+const (
+	LightGreen   = "\033[38;5;10m"  // Vert fluo
+	DarkGreen    = "\033[38;5;28m"  // Vert foncé
+	LightYellow  = "\033[38;5;226m" // Jaune fluo
+	OrangeYellow = "\033[38;5;214m" // Jaune orangé
+	LightOrange  = "\033[38;5;208m" // Orange fluo
+	PinkRed      = "\033[38;5;197m" // Pink red
+	LightRed     = "\033[38;5;196m" // Rouge fluo
+	Reset        = "\033[0m"        // Réinitialisation de la couleur
+)
 
 func Error() {
-	if LosePoint == 1 {
-		fmt.Println("")
-		fmt.Println("    ")
-		fmt.Println("    ")
-		fmt.Println("    ")
-		fmt.Println("    ")
-		fmt.Println("    ")
-		fmt.Println("     ")
-		fmt.Println("     ")
-		fmt.Println("    ")
-		fmt.Println("     ")
-		fmt.Println(LightGreen, " ___________", Reset)
-	} else if LosePoint == 2 {
-		fmt.Println(LightGreen, "      []", Reset)
-		fmt.Println(LightGreen, "      []    ", Reset)
-		fmt.Println(LightGreen, "      []        ", Reset)
-		fmt.Println(LightGreen, "      []         ", Reset)
-		fmt.Println(LightGreen, "      []              ", Reset)
-		fmt.Println(LightGreen, "      []   ", Reset)
-		fmt.Println(LightGreen, "      []      ", Reset)
-		fmt.Println(LightGreen, "      []        ", Reset)
-		fmt.Println(LightGreen, "      []         ", Reset)
-		fmt.Println(LightGreen, "      []")
-		fmt.Println(LightGreen, " _____[]______", Reset)
-	} else if LosePoint == 3 {
-		fmt.Println(DarkGreen, "      []", Reset)
-		fmt.Println(DarkGreen, "      []            ", Reset)
-		fmt.Println(DarkGreen, "      []         ", Reset)
-		fmt.Println(DarkGreen, "      []          ", Reset)
-		fmt.Println(DarkGreen, "      []              ", Reset)
-		fmt.Println(DarkGreen, "      []          ", Reset)
-		fmt.Println(DarkGreen, "      []       ", Reset)
-		fmt.Println(DarkGreen, "      []         ", Reset)
-		fmt.Println(DarkGreen, "      []            ", Reset)
-		fmt.Println(DarkGreen, "      []\\")
-		fmt.Println(DarkGreen, " _____[]_\\____", Reset)
-	} else if LosePoint == 4 {
-		fmt.Println(LightYellow, "======[]==============|========", Reset)
-		fmt.Println(LightYellow, "      []           ", Reset)
-		fmt.Println(LightYellow, "      []         ", Reset)
-		fmt.Println(LightYellow, "      []           ", Reset)
-		fmt.Println(LightYellow, "      []           ", Reset)
-		fmt.Println(LightYellow, "      []          ", Reset)
-		fmt.Println(LightYellow, "      []           ", Reset)
-		fmt.Println(LightYellow, "      []           ", Reset)
-		fmt.Println(LightYellow, "      []           ", Reset)
-		fmt.Println(LightYellow, "      []\\", Reset)
-		fmt.Println(LightYellow, " _____[]_\\____", Reset)
-	} else if LosePoint == 5 {
-		fmt.Println(OrangeYellow, "======[]==============|========", Reset)
-		fmt.Println(OrangeYellow, "      []              |", Reset)
-		fmt.Println(OrangeYellow, "      []            ", Reset)
-		fmt.Println(OrangeYellow, "      []          ", Reset)
-		fmt.Println(OrangeYellow, "      []              ", Reset)
-		fmt.Println(OrangeYellow, "      []         ", Reset)
-		fmt.Println(OrangeYellow, "      []          ", Reset)
-		fmt.Println(OrangeYellow, "      []           ", Reset)
-		fmt.Println(OrangeYellow, "      []        ", Reset)
-		fmt.Println(OrangeYellow, "      []\\", Reset)
-		fmt.Println(OrangeYellow, " _____[]_\\____", Reset)
-	} else if LosePoint == 6 {
-		fmt.Println(LightOrange, "======[]==============|========", Reset)
-		fmt.Println(LightOrange, "      []            __|__", Reset)
-		fmt.Println(LightOrange, "      []            |   |", Reset)
-		fmt.Println(LightOrange, "      []            |___|", Reset)
-		fmt.Println(LightOrange, "      []              ", Reset)
-		fmt.Println(LightOrange, "      []          ", Reset)
-		fmt.Println(LightOrange, "      []            ", Reset)
-		fmt.Println(LightOrange, "      []             ", Reset)
-		fmt.Println(LightOrange, "      []            ", Reset)
-		fmt.Println(LightOrange, "      []\\", Reset)
-		fmt.Println(LightOrange, " _____[]_\\____", Reset)
-	} else if LosePoint == 7 {
-		fmt.Println(LightOrange, "======[]==============|========")
-		fmt.Println(LightOrange, "      []            __|__", Reset)
-		fmt.Println(LightOrange, "      []            |   |", Reset)
-		fmt.Println(LightOrange, "      []            |___|", Reset)
-		fmt.Println(LightOrange, "      []              |", Reset)
-		fmt.Println(LightOrange, "      []              |", Reset)
-		fmt.Println(LightOrange, "      []              |", Reset)
-		fmt.Println(LightOrange, "      []               ", Reset)
-		fmt.Println(LightOrange, "      []           ", Reset)
-		fmt.Println(LightOrange, "      []\\", Reset)
-		fmt.Println(LightOrange, " _____[]_\\____", Reset)
-	} else if LosePoint == 8 {
-		fmt.Println(PinkRed, "======[]==============|========", Reset)
-		fmt.Println(PinkRed, "      []            __|__", Reset)
-		fmt.Println(PinkRed, "      []            |   |", Reset)
-		fmt.Println(PinkRed, "      []            |___|", Reset)
-		fmt.Println(PinkRed, "      []              |", Reset)
-		fmt.Println(PinkRed, "      []              |\\", Reset)
-		fmt.Println(PinkRed, "      []              | \\", Reset)
-		fmt.Println(PinkRed, "      []              ", Reset)
-		fmt.Println(PinkRed, "      []            ", Reset)
-		fmt.Println(PinkRed, "      []\\", Reset)
-		fmt.Println(PinkRed, " _____[]_\\____", Reset)
-	} else if LosePoint == 9 {
-		fmt.Println(PinkRed, "======[]==============|========", Reset)
-		fmt.Println(PinkRed, "      []            __|__", Reset)
-		fmt.Println(PinkRed, "      []            |   |", Reset)
-		fmt.Println(PinkRed, "      []            |___|", Reset)
-		fmt.Println(PinkRed, "      []              |", Reset)
-		fmt.Println(PinkRed, "      []             /|\\", Reset)
-		fmt.Println(PinkRed, "      []            / | \\", Reset)
-		fmt.Println(PinkRed, "      []             ", Reset)
-		fmt.Println(PinkRed, "      []            ", Reset)
-		fmt.Println(PinkRed, "      []\\", Reset)
-		fmt.Println(PinkRed, " _____[]_\\____", Reset)
-	} else if LosePoint == 10 {
-		fmt.Println(LightRed, "======[]==============|========", Reset)
-		fmt.Println(LightRed, "      []            __|__", Reset)
-		fmt.Println(LightRed, "      []            |   |", Reset)
-		fmt.Println(LightRed, "      []            |___|", Reset)
-		fmt.Println(LightRed, "      []              |", Reset)
-		fmt.Println(LightRed, "      []             /|\\", Reset)
-		fmt.Println(LightRed, "      []            / | \\", Reset)
-		fmt.Println(LightRed, "      []               \\", Reset)
-		fmt.Println(LightRed, "      []                \\", Reset)
-		fmt.Println(LightRed, "      []\\", Reset)
-		fmt.Println(LightRed, " _____[]_\\____", Reset)
-	} else if LosePoint >= 11 {
-		fmt.Println(LightRed, "======[]==============|========", Reset)
-		fmt.Println(LightRed, "      []            __|__", Reset)
-		fmt.Println(LightRed, "      []            |   |", Reset)
-		fmt.Println(LightRed, "      []            |___|", Reset)
-		fmt.Println(LightRed, "      []              |", Reset)
-		fmt.Println(LightRed, "      []             /|\\", Reset)
-		fmt.Println(LightRed, "      []            / | \\", Reset)
-		fmt.Println(LightRed, "      []             / \\", Reset)
-		fmt.Println(LightRed, "      []            /   \\", Reset)
-		fmt.Println(LightRed, "      []\\", Reset)
-		fmt.Println(LightRed, " _____[]_\\____", Reset)
-	} else if LosePoint == 0 {
-		fmt.Println("")
+	File := strconv.Itoa(LosePoint)
+	ErrorNb, err := ioutil.ReadFile("Jeux/Display/Display" + File + ".txt") // lire le fichier text.txt
+	if err != nil {
+		fmt.Println(err)
+	}
+	switch LosePoint {
+	case 1:
+		fmt.Println(LightGreen, string(ErrorNb), Reset)
+	case 2:
+		fmt.Println(LightGreen, string(ErrorNb), Reset)
+	case 3:
+		fmt.Println(DarkGreen, string(ErrorNb), Reset)
+	case 4:
+		fmt.Println(LightYellow, string(ErrorNb), Reset)
+	case 5:
+		fmt.Println(LightYellow, string(ErrorNb), Reset)
+	case 6:
+		fmt.Println(OrangeYellow, string(ErrorNb), Reset)
+	case 7:
+		fmt.Println(LightOrange, string(ErrorNb), Reset)
+	case 8:
+		fmt.Println(LightOrange, string(ErrorNb), Reset)
+	case 9:
+		fmt.Println(PinkRed, string(ErrorNb), Reset)
+	case 10:
+		fmt.Println(LightRed, string(ErrorNb), Reset)
+	case 11:
+		fmt.Println(LightRed, string(ErrorNb), Reset)
 	}
 }

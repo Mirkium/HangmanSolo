@@ -24,7 +24,7 @@ func Hangman() {
 	fmt.Println("     /[]\\")
 	fmt.Println(" ___/_[]_\\____")
 	fmt.Println(" ")
-	fmt.Println(ListeWord)
+	fmt.Println("Jeux/Display/Display" + string(LosePoint) + ".txt")
 	fmt.Println(" 1. Play    2. Langage   3. Rules    4. Exit")
 	fmt.Print("Your choice : ")
 	fmt.Scanln(&choix)
