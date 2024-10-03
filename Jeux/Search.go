@@ -6,21 +6,22 @@ func TrouverLettre(mot string) {
 	var lettre string
 	var choix string
 	var Error int = 0
-	fmt.Println("================H.A.N.G.M.A.N================")
+	fmt.Println("/==========================H.A.N.G.M.A.N==========================\\")
 	fmt.Println("")
 	fmt.Println("1. Choose a letter ( Be careful! no exit before entering the letter).")
 	fmt.Println("0. Exit")
+	fmt.Println("")
+	fmt.Println("\\==========================N.A.M.G.N.A.H==========================/")
 	fmt.Println("")
 	fmt.Print("Your choice : ")
 	fmt.Scanln(&choix)
 	if len(choix) == 1 {
 		switch choix {
 		case "1":
-			clearScreen()
-			fmt.Println("================H.A.N.G.M.A.N================")
 			fmt.Println("")
 			fmt.Print("the letter : ")
 			fmt.Scanln(&lettre)
+			lettre = ToLower(lettre)
 			for _, L := range LettreError {
 				if lettre == L {
 					clearScreen()
@@ -63,10 +64,12 @@ func TrouverLettre(mot string) {
 
 func TrouverMot(mot string) {
 	var choix string
-	fmt.Println("================H.A.N.G.M.A.N================")
+	fmt.Println("/==========================H.A.N.G.M.A.N==========================\\")
 	fmt.Println("")
 	fmt.Println("1. Choose a word ( Be careful! no exit before entering the word).")
 	fmt.Println("0. Exit")
+	fmt.Println("")
+	fmt.Println("\\==========================N.A.M.G.N.A.H==========================/")
 	fmt.Println("")
 	fmt.Print("Your choice : ")
 	fmt.Scanln(&choix)
@@ -75,6 +78,7 @@ func TrouverMot(mot string) {
 		var word string
 		fmt.Print("Choose a word : ")
 		fmt.Scanln(&word)
+		word = ToLower(word)
 		if len(word) <= len(mot) {
 			for _, L := range LettreError {
 				if word == L {

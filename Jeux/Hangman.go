@@ -11,21 +11,23 @@ var ListeWord []string
 
 func Hangman() {
 	var choix string
-	fmt.Println("       H-A-N-G-M-A-N ")
-	fmt.Println("======[]==============|========")
-	fmt.Println("      []            __|__")
-	fmt.Println("      []            |   |")
-	fmt.Println("      []            |___|")
-	fmt.Println("      []              |")
-	fmt.Println("      []             /|\\")
-	fmt.Println("      []            / | \\")
-	fmt.Println("      []             / \\")
-	fmt.Println("      []            /   \\")
-	fmt.Println("     /[]\\")
-	fmt.Println(" ___/_[]_\\____")
+	fmt.Println("/================H.A.N.G.M.A.N================\\")
+	fmt.Println("")
+	fmt.Println("       ======[]==============|========")
+	fmt.Println("             []            __|__")
+	fmt.Println("             []            |   |")
+	fmt.Println("             []            |___|")
+	fmt.Println("             []              |")
+	fmt.Println("             []             /|\\")
+	fmt.Println("             []            / | \\")
+	fmt.Println("             []             / \\")
+	fmt.Println("             []            /   \\")
+	fmt.Println("            /[]\\")
+	fmt.Println("        ___/_[]_\\____")
 	fmt.Println(" ")
-	fmt.Println("Jeux/Display/Display" + string(LosePoint) + ".txt")
-	fmt.Println(" 1. Play    2. Langage   3. Rules    4. Exit")
+	fmt.Println("        1. Play    2. Rules    3. Exit")
+	fmt.Println("")
+	fmt.Println("\\================N.A.M.G.N.A.H================/")
 	fmt.Print("Your choice : ")
 	fmt.Scanln(&choix)
 	switch choix {
@@ -34,16 +36,11 @@ func Hangman() {
 		Play()
 	case "2":
 		clearScreen()
-		Langage()
+		Rules()
 		clearScreen()
 		Hangman()
 	case "3":
 		clearScreen()
-		Rules()
-		clearScreen()
-		Hangman()
-	case "4":
-		break
 	default:
 		clearScreen()
 		Hangman()

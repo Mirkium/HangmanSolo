@@ -20,8 +20,10 @@ const (
 func Error() {
 	File := strconv.Itoa(LosePoint)
 	ErrorNb, err := ioutil.ReadFile("Jeux/Display/Display" + File + ".txt") // lire le fichier text.txt
-	if err != nil {
-		fmt.Println(err)
+	if LosePoint != 0 {
+		if err != nil {
+			fmt.Println(err)
+		}
 	}
 	switch LosePoint {
 	case 1:
